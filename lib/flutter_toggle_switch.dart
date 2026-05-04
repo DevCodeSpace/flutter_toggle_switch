@@ -3737,8 +3737,9 @@ class _UnderlineTabBarState extends State<UnderlineTabBar>
   @override
   void didUpdateWidget(covariant UnderlineTabBar oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.duration != widget.duration)
+    if (oldWidget.duration != widget.duration) {
       _controller.duration = widget.duration;
+    }
     if (oldWidget.selectedIndex != widget.selectedIndex) {
       _from = _currentIndex(oldWidget.selectedIndex.toDouble());
       _to = widget.selectedIndex.toDouble();
@@ -3769,8 +3770,9 @@ class _UnderlineTabBarState extends State<UnderlineTabBar>
   }
 
   KeyEventResult _onKey(FocusNode node, KeyEvent event) {
-    if (!widget.enabled || event is! KeyDownEvent)
+    if (!widget.enabled || event is! KeyDownEvent) {
       return KeyEventResult.ignored;
+    }
     final key = event.logicalKey;
     if (key == LogicalKeyboardKey.arrowRight) {
       _select((widget.selectedIndex + 1).clamp(0, widget.tabs.length - 1));
@@ -4142,8 +4144,9 @@ class _MagneticBlobTabBarState extends State<MagneticBlobTabBar>
   @override
   void didUpdateWidget(covariant MagneticBlobTabBar oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.duration != widget.duration)
+    if (oldWidget.duration != widget.duration) {
       _controller.duration = widget.duration;
+    }
     if (oldWidget.selectedIndex != widget.selectedIndex) {
       _from = _liveIndex();
       _to = widget.selectedIndex.toDouble();
@@ -4191,8 +4194,9 @@ class _MagneticBlobTabBarState extends State<MagneticBlobTabBar>
   }
 
   KeyEventResult _onKey(FocusNode node, KeyEvent event) {
-    if (!widget.enabled || event is! KeyDownEvent)
+    if (!widget.enabled || event is! KeyDownEvent) {
       return KeyEventResult.ignored;
+    }
     final key = event.logicalKey;
     if (key == LogicalKeyboardKey.arrowRight &&
         widget.selectedIndex < widget.tabs.length - 1) {
